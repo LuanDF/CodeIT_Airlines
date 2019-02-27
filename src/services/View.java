@@ -46,7 +46,7 @@ public class View {
 		System.out.printf("\n--Passageiro: %s embarcado com sucesso, Motorista: %s retornando a área de embarque\n\n", p,m);
 	}
 	
-	public void lasnEmbark() {
+	public void lastEmbark() {
 		System.out.printf("\n--Passageiro: %s e Motorista: %s embarcados no avião.\n", p,m);
 	}
 	

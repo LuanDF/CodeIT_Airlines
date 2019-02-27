@@ -16,9 +16,10 @@ public class Program {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+		View view = new View();
+		
 		List<People> airportList = new ArrayList<>();
 		List<People> airplaneList = new ArrayList<>();
-		View view = new View();
 		
 		airportList.add(new Driver("Piloto"));
 		airportList.add(new Driver("ChefeDeServiço"));
@@ -60,8 +61,11 @@ public class Program {
 				System.out.println("Passageiro não se encontra mais na área de embarque, tente novamente.");
 				break;
 			}
+			
 			if(p.equals("Policial")) {
-				if(airplaneList.size() > 1) {
+				int i = 1;
+				int n = 0;
+				if(airplaneList.size() > i || airplaneList.size() == n) {
 					System.out.println("Policial não pode deixar Presidiario sozinho com os outros passageiros, tente novamente.");
 					break;
 				}
@@ -78,7 +82,7 @@ public class Program {
 			
 			if(airportList.size() == 1) {
 				airplaneList.add(new Driver(m));
-				view.lasnEmbark();
+				view.lastEmbark();
 				System.out.printf("\nLista de passageiros dentro do avião:\n");
 				for (People x : airplaneList) {
 					System.out.println(x);
@@ -92,6 +96,14 @@ public class Program {
 			if(airplaneList.contains(checkI) && !airplaneList.contains(checkC) && airplaneList.size() > 1) {
 				System.out.println("Presidiario não pode ficar com os ouros passageiros sem a presença do Policial, tente novamente.");
 				break;
+			}
+			
+			if(p.equals("Policial")) {
+				int i = 2;
+				if(airplaneList.size() == i && !airplaneList.contains(checkI)) {
+					System.out.println("Policial não pode deixar Presidiario sozinho com os outros passageiros, tente novamente.");
+					break;
+				}
 			}
 			
 			view.embarkView();
